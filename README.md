@@ -79,9 +79,20 @@ git commit -m "bug fixes"
 (git commit commits it, with -m and then "description of commit". Keep these desciptions short and informative if possible)
 
 5. Merge changes into Main
-Take these bug fixes and merge them into main. This uses the following command:
+Take these bug fixes and merge them into main. 
 
-git merge main
+First, you want to go checkout the main branch to merge into
+
+```
+git checkout main
+```
+
+Then, you want to merge the changes of the snake_bug_fix into main.
+
+```
+git merge snake_bug_fix
+```
+
 
 6. Resolving the Merge Conflict
 You’ll see Git’s conflict markers inside the main.py file :
@@ -103,11 +114,7 @@ Stage the resolved file:
 
 ```
 git add main.py
-Complete the merge:
-```
-
-```
-git merge --continue
+git commit
 ```
 
 Git Merge Points:
@@ -117,7 +124,7 @@ Merge Conflicts: When two branches change the same part of a file, Git doesn’t
 Branching and Merging Best Practices: It’s great to work on separate branches, but knowing how to handle merge conflicts when combining them is just as important.
 
 
-6.
+7.
 
 After the merge conflict is resolved:
 
@@ -125,4 +132,21 @@ Push your changes back to your GitHub with
 
 ```
 git push 
+```
+
+If this is the first time pushing to the GitHub repo, you may get an error because git doesn't know where to push
+your local changes. The terminal gives this fix, but is is also below:
+
+git push --set-upstream origin main
+
+This command does two things:
+
+It pushes your local main branch to the remote repository (origin).
+
+It sets the remote main branch as the upstream branch for your local main, so future pushes and pulls will be automatic.
+
+Now it should work, so you can push changes to GitHub with:
+
+```
+git push
 ```
