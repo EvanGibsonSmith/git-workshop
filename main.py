@@ -16,18 +16,18 @@ class Snake:
 
     def move(self):
         # Introduce a bug: random chance to randomly change direction
-        if random.random() < 0.2:
+        if random.random() < 0.05:
             self.direction = random.choice(["UP", "DOWN", "LEFT", "RIGHT"])
         
         head_x, head_y = self.body[0]
-        if self.direction == "UP":
-            head_y -= 1
-        elif self.direction == "DOWN":
-            head_y += 1
-        elif self.direction == "LEFT":
+        if self.direction == "LEFT":
             head_x -= 1
         elif self.direction == "RIGHT":
             head_x += 1
+        elif self.direction == "UP":
+            head_y -= 1
+        elif self.direction == "DOWN":
+            head_y += 1
 
         new_head = (head_x % GRID_WIDTH, head_y % GRID_HEIGHT)
         self.body.insert(0, new_head)
@@ -40,7 +40,8 @@ class Snake:
         self.grow_next = True
 
     def draw(self, surface):
-        for i, segment in enumerate(self.body):
+        for i in range(len(self.body)):
+            segment = self.body[i]
             color = (SNAKE_COLOR[0], (SNAKE_COLOR[1] + i * 10) % 255, SNAKE_COLOR[2])
             pygame.draw.rect(surface, color, (segment[0]*CELL_SIZE, segment[1]*CELL_SIZE, CELL_SIZE, CELL_SIZE))
 
@@ -71,17 +72,17 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                snake.direction = "UP"
-            elif event.key == pygame.K_DOWN:
-                snake.direction = "DOWN"
-            elif event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT:
                 snake.direction = "LEFT"
             elif event.key == pygame.K_RIGHT:
                 snake.direction = "RIGHT"
-            elif event.key == pygame.K_z:
+            elif event.key == pygame.K_UP:
+                snake.direction = "UP"
+            elif event.key == pygame.K_DOWN:
+                snake.direction = "DOWN"
+            elif event.key == pygame.K_x:
                 snake.grow()
-                score += 5
+                score += 1
 
     snake.move()
     if snake.body[0] == food.position:
