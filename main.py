@@ -56,9 +56,9 @@ class Snake:
         #    sys.exit()
         
         # Check for collisions with self
-        if new_head in self.body[1:]:
-            pygame.quit()
-            sys.exit()
+        #if new_head in self.body[1:]:
+        #    pygame.quit()
+        #    sys.exit()
         ### END OF CHANGE
 
         if not self.grow_next:
