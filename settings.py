@@ -1,0 +1,10 @@
+WIDTH, HEIGHT = 600, 600
+CELL_SIZE = 20
+GRID_WIDTH = WIDTH // CELL_SIZE
+GRID_HEIGHT = HEIGHT // CELL_SIZE
+
+SNAKE_COLOR = (0, 255, 0)     
+FOOD_COLOR = (255, 0, 0)      
+BG_COLOR = (30, 30, 30)       
+SPEED = 10                   
+SNAKE_NAME = "Snake"     
