@@ -13,12 +13,7 @@ Make your own changes to the game on the snake_bug_fix branch.
 
 Merge your changes with the main branch that has conflicting updates.
 
-🚀 Getting Started
-
 0. Downloads
-## 🚀 Getting Started
-
-### 0. Downloads
 
 **Git:**
 
@@ -52,8 +47,17 @@ Clone the repository and navigate to our project folder. Then, type this command
 
 ```
 git clone <this_repo_url>
-cd chaotic_snake
 ```
+
+This will get the most recent changes from the branch, but if you want to update those changes,
+use 
+
+```
+git pull
+```
+
+This will pull the changes (often made by other people) to your local repo before you start working.
+Doing this helps prevent merge conflicts.
 
 3. Create a branch for bug fixes
 First, switch to the snake branch that contains the pre-made changes (these are the ones you’ll be merging into):
@@ -67,7 +71,7 @@ This branch has the snake game without the needed bug fixes. The -b flag creates
 
 4. Modify the Game
 Go through the code on this new branch and make the bug fixes needed. These bug fixes will be marked by comments
-# TODO
+\#TODO
 so command F for those to find the changes needed.
 
 4. Commit Your Changes
@@ -95,13 +99,9 @@ git merge snake_bug_fix
 
 
 6. Resolving the Merge Conflict
-You’ll see Git’s conflict markers inside the main.py file :
+You’ll see Git’s conflict markers inside the main.py file. It will look something like this:
 
-<<<<<< HEAD
-print("Hello Current Change")
-======
-print("Hello Incoming Change")
->>>>>> main
+![alt text](merge_conflict.png)
 
 To resolve the conflict:
 
