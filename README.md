@@ -63,10 +63,10 @@ Doing this helps prevent merge conflicts.
 First, switch to the snake branch that contains the pre-made changes (these are the ones you’ll be merging into):
 
 ```
-git checkout -b snake_bug_fix
+git checkout snake_bug_fix
 ```
 
-This branch has the snake game without the needed bug fixes. The -b flag creates the new branch locally.
+This branch has the snake game without the needed bug fixes.
 
 
 4. Modify the Game
@@ -74,7 +74,7 @@ Go through the code on this new branch and make the bug fixes needed. These bug 
 \#TODO
 so command F for those to find the changes needed.
 
-4. Commit Your Changes
+5. Commit Your Changes
 Once you've made your edits, commit your changes on this new branch:
 
 git add main.py
@@ -82,7 +82,7 @@ git add main.py
 git commit -m "bug fixes"
 (git commit commits it, with -m and then "description of commit". Keep these desciptions short and informative if possible)
 
-5. Merge changes into Main
+6. Merge changes into Main
 Take these bug fixes and merge them into main. 
 
 First, you want to go checkout the main branch to merge into
@@ -98,7 +98,7 @@ git merge snake_bug_fix
 ```
 
 
-6. Resolving the Merge Conflict
+7. Resolving the Merge Conflict
 You’ll see Git’s conflict markers inside the main.py file. It will look something like this:
 
 ![alt text](merge_conflict.png)
@@ -114,7 +114,7 @@ Stage the resolved file:
 
 ```
 git add main.py
-git commit
+git commit -m "merge"
 ```
 
 Git Merge Points:
@@ -124,9 +124,7 @@ Merge Conflicts: When two branches change the same part of a file, Git doesn’t
 Branching and Merging Best Practices: It’s great to work on separate branches, but knowing how to handle merge conflicts when combining them is just as important.
 
 
-7.
-
-After the merge conflict is resolved:
+8. After the merge conflict is resolved:
 
 Push your changes back to your GitHub with 
 
